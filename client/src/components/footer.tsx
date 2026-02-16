@@ -58,13 +58,16 @@ scrolling="yes">
 </iframe>
 </p>
 </div>            
-<div>💝💝💝
+<div className="mx-auto items-center space-y-4 text-center">
+    <p>   
+    💝💝💝
 <a href="https://dash.cloudflare.com/" rel="noopener noreferrer" target="_blank">赛博菩萨</a>；
   <a href="https://github.com/" rel="noopener noreferrer" target="_blank">小黄人</a>；
   <a href="https://www.cloudns.net/" rel="noopener noreferrer" target="_blank">CloudNS</a>；
   <a href="https://account.proton.me/mail" rel="noopener noreferrer" target="_blank">Proton Mail</a>；💝💝💝
-</div>
-<div>
+</p>
+    </div>
+<div className="mx-auto items-center space-y-4 text-center">
    <p>
    🛠️🛠️🛠️网站联盟（自用）：
     <a href="https://imgbed.19781126.xyz/" rel="noopener noreferrer" target="_blank">图床</a>；
