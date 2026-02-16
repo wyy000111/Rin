@@ -53,7 +53,7 @@ function Footer() {
 name="评论" 
 width="1000"
 height="auto"
-frameborder="0"
+frameBorder="0"
 scrolling="yes">
 </iframe>
 </p>
