@@ -41,8 +41,23 @@ function Footer() {
 
     return (
         <footer>
+    <Helmet>
+                <link rel="alternate" type="application/rss+xml" title={siteName} href="/rss.xml" />
+                <link rel="alternate" type="application/atom+xml" title={siteName} href="/atom.xml" />
+                <link rel="alternate" type="application/json" title={siteName} href="/rss.json" />
+            </Helmet>
 
-            
+<div className="mx-auto items-center space-y-4 text-center">
+ <p>
+<iframe src="https://comment.19781126.xyz/embed/area/www?theme=light&lang=zh-CN"  
+name="评论" 
+width="1000"
+height="auto"
+frameborder="0"
+scrolling="yes">
+</iframe>
+</p>
+</div>            
 <div>💝💝💝
 <a href="https://dash.cloudflare.com/" rel="noopener noreferrer" target="_blank">赛博菩萨</a>；
   <a href="https://github.com/" rel="noopener noreferrer" target="_blank">小黄人</a>；
@@ -70,11 +85,6 @@ function Footer() {
 
 
             
-            <Helmet>
-                <link rel="alternate" type="application/rss+xml" title={siteName} href="/rss.xml" />
-                <link rel="alternate" type="application/atom+xml" title={siteName} href="/atom.xml" />
-                <link rel="alternate" type="application/json" title={siteName} href="/rss.json" />
-            </Helmet>
             <div className="flex flex-col mb-8 space-y-2 justify-center items-center t-primary ani-show">
                 {footerHtml && <div dangerouslySetInnerHTML={{ __html: footerHtml }} />}
                 <p className='text-sm text-neutral-500 font-normal link-line'>
