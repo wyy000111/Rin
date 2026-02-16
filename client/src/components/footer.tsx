@@ -41,13 +41,8 @@ function Footer() {
 
     return (
         <footer>
-    <Helmet>
-                <link rel="alternate" type="application/rss+xml" title={siteName} href="/rss.xml" />
-                <link rel="alternate" type="application/atom+xml" title={siteName} href="/atom.xml" />
-                <link rel="alternate" type="application/json" title={siteName} href="/rss.json" />
-            </Helmet>
 
- <div className="w-full flex flex-col items-center justify-center p-8">
+<div className="w-full flex flex-col items-center justify-center p-8">
 <iframe src="https://comment.19781126.xyz/embed/area/www?theme=light&lang=zh-CN"  
 name="评论" 
 width="auto"
@@ -87,6 +82,13 @@ scrolling="yes">
 
 
             
+    <Helmet>
+                <link rel="alternate" type="application/rss+xml" title={siteName} href="/rss.xml" />
+                <link rel="alternate" type="application/atom+xml" title={siteName} href="/atom.xml" />
+                <link rel="alternate" type="application/json" title={siteName} href="/rss.json" />
+            </Helmet>
+
+           
             <div className="flex flex-col mb-8 space-y-2 justify-center items-center t-primary ani-show">
                 {footerHtml && <div dangerouslySetInnerHTML={{ __html: footerHtml }} />}
                 <p className='text-sm text-neutral-500 font-normal link-line'>
