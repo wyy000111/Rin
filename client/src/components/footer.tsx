@@ -43,16 +43,6 @@ function Footer() {
         <footer>
 
             
-<iframe src="https://comment.19781126.xyz/embed/area/www?theme=light&lang=zh-CN"  
-name="评论" 
-width="1000"
-height="auto"
-frameborder="0"
-scrolling="yes">
-</iframe>
-
-
-            
 <div>💝💝💝
 <a href="https://dash.cloudflare.com/" rel="noopener noreferrer" target="_blank">赛博菩萨</a>；
   <a href="https://github.com/" rel="noopener noreferrer" target="_blank">小黄人</a>；
