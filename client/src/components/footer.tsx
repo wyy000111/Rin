@@ -42,15 +42,15 @@ function Footer() {
     return (
         <footer>
 
-<div className="w-full flex flex-col items-center justify-center p-8">
+
 <iframe src="https://comment.19781126.xyz/embed/area/www?theme=light&lang=zh-CN"  
 name="评论" 
-width=1000
+width=100%
 height="auto"
 frameBorder="0"
 scrolling="yes">
 </iframe>
- </div>
+
             
 <div className="mx-auto items-center space-y-4 text-center">
     <p>   
