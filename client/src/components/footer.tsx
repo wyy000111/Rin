@@ -45,7 +45,7 @@ function Footer() {
 
 <iframe src="https://comment.19781126.xyz/embed/area/www?theme=light&lang=zh-CN"  
 name="评论" 
-width=100%
+width=1000
 height="auto"
 frameBorder="0"
 scrolling="yes">
