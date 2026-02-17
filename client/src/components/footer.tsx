@@ -42,7 +42,7 @@ function Footer() {
     return (
         <footer>
 
-<div className="items-center text-center">
+<div className="flex flex-col mb-8 space-y-2 justify-center items-center t-primary ani-show">
  <p>
 <iframe src="https://comment.19781126.xyz/embed/area/www?theme=light&lang=zh-CN"  
 name="评论" 
