@@ -53,7 +53,7 @@ scrolling="yes">
 </p>
 </div>
             
-<div className="mx-auto items-center space-y-4 text-center">
+<div className="flex flex-col mb-8 space-y-2 justify-center mx-auto items-center t-primary ani-show  text-cente">
     <p>   
     💝💝💝
 <a href="https://dash.cloudflare.com/" rel="noopener noreferrer" target="_blank">赛博菩萨</a>；
