@@ -41,6 +41,45 @@ function Footer() {
 
     return (
         <footer>
+ <div className="mx-auto items-center">
+ <p>
+<iframe src="https://comment.19781126.xyz/embed/area/www?theme=light&lang=zh-CN"  
+name="评论" 
+width="80%"
+height="auto"
+frameBorder="0"
+scrolling="yes">
+</iframe>
+</p>
+</div>
+            
+<div className="mx-auto items-center space-y-4 text-center">
+    <p>   
+    💝💝💝
+<a href="https://dash.cloudflare.com/" rel="noopener noreferrer" target="_blank">赛博菩萨</a>；
+  <a href="https://github.com/" rel="noopener noreferrer" target="_blank">小黄人</a>；
+  <a href="https://www.cloudns.net/" rel="noopener noreferrer" target="_blank">CloudNS</a>；
+  <a href="https://account.proton.me/mail" rel="noopener noreferrer" target="_blank">Proton Mail</a>；💝💝💝
+</p>
+    </div>
+<div className="mx-auto items-center space-y-4 text-center">
+   <p>
+   🛠️🛠️🛠️网站联盟（自用）：
+    <a href="https://imgbed.19781126.xyz/" rel="noopener noreferrer" target="_blank">图床</a>；
+    <a href="https://paste.19781126.xyz/" rel="noopener noreferrer" target="_blank">网盘/WebDav</a>；
+    <a href="https://tv.19781126.xyz/" rel="noopener noreferrer" target="_blank">在线TV</a>；
+    <a href="https://media.19781126.xyz/" rel="noopener noreferrer" target="_blank">多媒体博客</a>；
+    <a href="https://github.19781126.xyz/" rel="noopener noreferrer" target="_blank">GH加速</a>；
+    <a href="https://comment.19781126.xyz/" rel="noopener noreferrer" target="_blank">评论</a>；
+    <a href="https://mail.19781126.xyz/" rel="noopener noreferrer" target="_blank">邮箱</a>；
+    <a href="https://chat.19781126.xyz/" rel="noopener noreferrer" target="_blank">AI Chat</a>；
+    <a href="https://gemini.19781126.xyz/" rel="noopener noreferrer" target="_blank">Google Gemini</a>；
+    <a href="https://www.19781126.xyz/" rel="noopener noreferrer" target="_blank">博客</a>；
+    <a href="https://epush.19781126.xyz/" rel="noopener noreferrer" target="_blank">消息推送</a>；🛠️🛠️🛠️
+ </p>
+ <hr />
+</div>
+
 
 
 
@@ -103,46 +142,7 @@ function Footer() {
                     <ThemeButton mode='dark' current={modeState} label="Toggle dark mode" icon="ri-moon-line" onClick={setMode} />
                 </div>
             </div>
-            <div className="mx-auto items-center">
- <p>
-<iframe src="https://comment.19781126.xyz/embed/area/www?theme=light&lang=zh-CN"  
-name="评论" 
-width="80%"
-height="auto"
-frameBorder="0"
-scrolling="yes">
-</iframe>
-</p>
-</div>
-            
-<div className="mx-auto items-center space-y-4 text-center">
-    <p>   
-    💝💝💝
-<a href="https://dash.cloudflare.com/" rel="noopener noreferrer" target="_blank">赛博菩萨</a>；
-  <a href="https://github.com/" rel="noopener noreferrer" target="_blank">小黄人</a>；
-  <a href="https://www.cloudns.net/" rel="noopener noreferrer" target="_blank">CloudNS</a>；
-  <a href="https://account.proton.me/mail" rel="noopener noreferrer" target="_blank">Proton Mail</a>；💝💝💝
-</p>
-    </div>
-<div className="mx-auto items-center space-y-4 text-center">
-   <p>
-   🛠️🛠️🛠️网站联盟（自用）：
-    <a href="https://imgbed.19781126.xyz/" rel="noopener noreferrer" target="_blank">图床</a>；
-    <a href="https://paste.19781126.xyz/" rel="noopener noreferrer" target="_blank">网盘/WebDav</a>；
-    <a href="https://tv.19781126.xyz/" rel="noopener noreferrer" target="_blank">在线TV</a>；
-    <a href="https://media.19781126.xyz/" rel="noopener noreferrer" target="_blank">多媒体博客</a>；
-    <a href="https://github.19781126.xyz/" rel="noopener noreferrer" target="_blank">GH加速</a>；
-    <a href="https://comment.19781126.xyz/" rel="noopener noreferrer" target="_blank">评论</a>；
-    <a href="https://mail.19781126.xyz/" rel="noopener noreferrer" target="_blank">邮箱</a>；
-    <a href="https://chat.19781126.xyz/" rel="noopener noreferrer" target="_blank">AI Chat</a>；
-    <a href="https://gemini.19781126.xyz/" rel="noopener noreferrer" target="_blank">Google Gemini</a>；
-    <a href="https://www.19781126.xyz/" rel="noopener noreferrer" target="_blank">博客</a>；
-    <a href="https://epush.19781126.xyz/" rel="noopener noreferrer" target="_blank">消息推送</a>；🛠️🛠️🛠️
- </p>
- <hr />
-</div>
-
-
+           
         </footer>
     );
 }
