@@ -41,7 +41,7 @@ function Footer() {
 
     return (
         <footer>
- <div className="mx-auto items-center">
+ <div className="items-center space-y-4 text-center">
  <p>
 <iframe src="https://comment.19781126.xyz/embed/area/www?theme=light&lang=zh-CN"  
 name="评论" 
@@ -53,7 +53,7 @@ scrolling="yes">
 </p>
 </div>
             
-<div className="flex flex-col mb-8 space-y-2 justify-center mx-auto items-center t-primary ani-show  text-cente">
+<div className="mx-auto items-center space-y-4 text-center">
     <p>   
     💝💝💝
 <a href="https://dash.cloudflare.com/" rel="noopener noreferrer" target="_blank">赛博菩萨</a>；
