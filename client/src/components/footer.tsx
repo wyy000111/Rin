@@ -41,7 +41,7 @@ function Footer() {
 
     return (
         <footer>
- <div className="items-center space-y-4 text-center">
+ <div className="w-full max-w-screen-lg flex-1 overflow-y-auto scroll-smooth max-lg:max-w-screen-md">
  <p>
 <iframe src="https://comment.19781126.xyz/embed/area/www?theme=light&lang=zh-CN"  
 name="评论" 
@@ -51,8 +51,7 @@ frameBorder="0"
 scrolling="auto">
 </iframe>
 </p>
-</div>
-            
+</div>         
 <div className="mx-auto items-center space-y-4 text-center">
     <p>   
     💝💝💝
