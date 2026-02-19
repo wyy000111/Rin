@@ -40,17 +40,14 @@ function Footer() {
     };
 
     return (
-        <footer>
- <div className="mx-auto items-center space-y-4 text-center">
-<iframe src="https://comment.19781126.xyz/embed/area/www?theme=light&lang=zh-CN"  
-name="评论" 
-width="800"
-height="auto"
-frameBorder="0"
-scrolling="auto">
-</iframe>
-</div>         
-<div className="mx-auto items-center space-y-4 text-center">
+        <footer>       
+    <Helmet>
+                <link rel="alternate" type="application/rss+xml" title={siteName} href="/rss.xml" />
+                <link rel="alternate" type="application/atom+xml" title={siteName} href="/atom.xml" />
+                <link rel="alternate" type="application/json" title={siteName} href="/rss.json" />
+            </Helmet>
+
+    <div className="mx-auto items-center space-y-4 text-center">
     <p>   
     💝💝💝
 <a href="https://dash.cloudflare.com/" rel="noopener noreferrer" target="_blank">赛博菩萨</a>；
@@ -76,16 +73,6 @@ scrolling="auto">
  </p>
  <hr />
 </div>
-
-
-
-
-            
-    <Helmet>
-                <link rel="alternate" type="application/rss+xml" title={siteName} href="/rss.xml" />
-                <link rel="alternate" type="application/atom+xml" title={siteName} href="/atom.xml" />
-                <link rel="alternate" type="application/json" title={siteName} href="/rss.json" />
-            </Helmet>
 
            
             <div className="flex flex-col mb-8 space-y-2 justify-center items-center t-primary ani-show">
