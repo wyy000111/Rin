@@ -48,8 +48,18 @@ function Footer() {
             </Helmet>           
             <div className="flex flex-col mb-8 space-y-2 justify-center items-center t-primary ani-show">
                 {footerHtml && <div dangerouslySetInnerHTML={{ __html: footerHtml }} />}
-                <p className='text-sm text-neutral-500 font-normal link-line'>
-                   
+               
+ <div className="mx-auto items-center space-y-4 text-center">
+ <p>
+<iframe src="https://comment.19781126.xyz/embed/area/www?theme=light&lang=zh-CN"  
+name="评论" 
+width="60%"
+height="auto"
+frameBorder="0"
+scrolling="yes">
+</iframe>
+</p>
+</div>                  
 <div className="mx-auto items-center space-y-4 text-center">
     <p>   
     💝💝💝
@@ -77,7 +87,7 @@ function Footer() {
  <hr />
 </div>
 
-                    
+                   <p className='text-sm text-neutral-500 font-normal link-line'>  
                     <span onDoubleClick={() => {
                         if(doubleClickTimes >= 2){ // actually need 3 times doubleClick
                             setDoubleClickTimes(0)
