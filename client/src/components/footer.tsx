@@ -45,9 +45,12 @@ function Footer() {
                 <link rel="alternate" type="application/rss+xml" title={siteName} href="/rss.xml" />
                 <link rel="alternate" type="application/atom+xml" title={siteName} href="/atom.xml" />
                 <link rel="alternate" type="application/json" title={siteName} href="/rss.json" />
-            </Helmet>
-
-    <div className="mx-auto items-center space-y-4 text-center">
+            </Helmet>           
+            <div className="flex flex-col mb-8 space-y-2 justify-center items-center t-primary ani-show">
+                {footerHtml && <div dangerouslySetInnerHTML={{ __html: footerHtml }} />}
+                <p className='text-sm text-neutral-500 font-normal link-line'>
+                   
+<div className="mx-auto items-center space-y-4 text-center">
     <p>   
     💝💝💝
 <a href="https://dash.cloudflare.com/" rel="noopener noreferrer" target="_blank">赛博菩萨</a>；
@@ -74,10 +77,7 @@ function Footer() {
  <hr />
 </div>
 
-           
-            <div className="flex flex-col mb-8 space-y-2 justify-center items-center t-primary ani-show">
-                {footerHtml && <div dangerouslySetInnerHTML={{ __html: footerHtml }} />}
-                <p className='text-sm text-neutral-500 font-normal link-line'>
+                    
                     <span onDoubleClick={() => {
                         if(doubleClickTimes >= 2){ // actually need 3 times doubleClick
                             setDoubleClickTimes(0)
