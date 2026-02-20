@@ -53,7 +53,6 @@ function Footer() {
  <p>
 <iframe src="https://comment.19781126.xyz/embed/area/www?theme=light&lang=zh-CN"  
 name="评论" 
-width="1000"
 height="auto"
 frameBorder="0"
 scrolling="yes">
@@ -74,6 +73,7 @@ scrolling="yes">
    🛠️🛠️🛠️网站联盟（自用）：
     <a href="https://imgbed.19781126.xyz/" rel="noopener noreferrer" target="_blank">图床</a>；
     <a href="https://paste.19781126.xyz/" rel="noopener noreferrer" target="_blank">网盘/WebDav</a>；
+    <a href="https://panhub.19781126.xyz/" rel="noopener noreferrer" target="_blank">网盘搜索/WebDav</a>；
     <a href="https://tv.19781126.xyz/" rel="noopener noreferrer" target="_blank">在线TV</a>；
     <a href="https://media.19781126.xyz/" rel="noopener noreferrer" target="_blank">多媒体博客</a>；
     <a href="https://github.19781126.xyz/" rel="noopener noreferrer" target="_blank">GH加速</a>；
@@ -86,7 +86,6 @@ scrolling="yes">
  </p>
  <hr />
 </div>
-
                    <p className='text-sm text-neutral-500 font-normal link-line'>  
                     <span onDoubleClick={() => {
                         if(doubleClickTimes >= 2){ // actually need 3 times doubleClick
@@ -125,7 +124,6 @@ scrolling="yes">
                                         JSON
                                     </a>
                                 </p>
-
                             </div>
                         </Popup>
                     </>}
@@ -135,8 +133,7 @@ scrolling="yes">
                     <ThemeButton mode='system' current={modeState} label="Toggle system mode" icon="ri-computer-line" onClick={setMode} />
                     <ThemeButton mode='dark' current={modeState} label="Toggle dark mode" icon="ri-moon-line" onClick={setMode} />
                 </div>
-            </div>
-           
+            </div>           
         </footer>
     );
 }
