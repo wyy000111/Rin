@@ -53,7 +53,7 @@ function Footer() {
 <div className="mx-auto items-center space-y-4 text-center">
 <iframe src="https://comment.19781126.xyz/embed/area/www?theme=light&lang=zh-CN"  
 name="评论" 
-width="1000"
+width="100%"
 height="auto"
 frameBorder="0"
 scrolling="auto">
@@ -76,7 +76,7 @@ scrolling="auto">
    🛠️🛠️🛠️网站联盟（自用）：
     <a href="https://imgbed.19781126.xyz/" rel="noopener noreferrer" target="_blank">图床</a>；
     <a href="https://paste.19781126.xyz/" rel="noopener noreferrer" target="_blank">网盘/WebDav</a>；
-     <a href="https://panhub.19781126.xyz/" rel="noopener noreferrer" target="_blank">网盘搜索/WebDav</a>；
+     <a href="https://panhub.19781126.xyz/" rel="noopener noreferrer" target="_blank">网盘搜索</a>；
     <a href="https://tv.19781126.xyz/" rel="noopener noreferrer" target="_blank">在线TV</a>；
     <a href="https://www.19781126.xyz/" rel="noopener noreferrer" target="_blank">博客</a>；
     <a href="https://media.19781126.xyz/" rel="noopener noreferrer" target="_blank">多媒体博客</a>；
