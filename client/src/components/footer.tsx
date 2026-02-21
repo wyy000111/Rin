@@ -53,7 +53,7 @@ function Footer() {
 <div className="mx-auto items-center space-y-4 text-center">
 <iframe src="https://comment.19781126.xyz/embed/area/www?theme=light&lang=zh-CN"  
 name="评论" 
-width="1024"
+width="1000"
 height="auto"
 frameBorder="0"
 scrolling="auto">
@@ -87,9 +87,6 @@ scrolling="auto">
  </p>
  <hr />
 </div>          
-
-
-
 
 
                 
