@@ -48,6 +48,41 @@ function Footer() {
             </Helmet>
             <div className="flex flex-col mb-8 space-y-2 justify-center items-center t-primary ani-show">
                 {footerHtml && <div dangerouslySetInnerHTML={{ __html: footerHtml }} />}
+
+
+<div className="mx-auto items-center text-center">
+<iframe src="https://comment.19781126.xyz/embed/area/www?theme=light&lang=zh-CN"  
+name="评论" 
+width="1080"
+width="90%"
+height="auto"
+frameBorder="0"
+scrolling="auto">
+</iframe>
+ <p>
+    Powered by 💝💝💝
+<a href="https://cloudflare.com/" rel="noopener noreferrer" target="_blank">赛博菩萨</a>；
+  <a href="https://github.com/" rel="noopener noreferrer" target="_blank">小黄人</a>；
+  <a href="https://www.cloudns.net/" rel="noopener noreferrer" target="_blank">CloudNS</a>；
+  <a href="https://account.proton.me/mail" rel="noopener noreferrer" target="_blank">Proton Mail</a>；💝💝💝
+</p>
+   <p>
+   🛠️🛠️🛠️网站联盟（自用）：
+    <a href="https://imgbed.19781126.xyz/" rel="noopener noreferrer" target="_blank">图床</a>；
+    <a href="https://paste.19781126.xyz/" rel="noopener noreferrer" target="_blank">网盘/WebDav</a>；
+     <a href="https://panhub.19781126.xyz/" rel="noopener noreferrer" target="_blank">网盘搜索</a>；
+    <a href="https://tv.19781126.xyz/" rel="noopener noreferrer" target="_blank">在线TV</a>；
+    <a href="https://www.19781126.xyz/" rel="noopener noreferrer" target="_blank">博客</a>；
+    <a href="https://media.19781126.xyz/" rel="noopener noreferrer" target="_blank">多媒体博客</a>；
+    <a href="https://github.19781126.xyz/" rel="noopener noreferrer" target="_blank">GH加速</a>；
+    <a href="https://comment.19781126.xyz/" rel="noopener noreferrer" target="_blank">评论</a>；
+    <a href="https://mail.19781126.xyz/" rel="noopener noreferrer" target="_blank">邮箱</a>；
+    <a href="https://epush.19781126.xyz/" rel="noopener noreferrer" target="_blank">消息推送</a>；🛠️🛠️🛠️
+ </p>
+ <hr />
+</div>          
+
+                
                 <p className='text-sm text-neutral-500 font-normal link-line'>
                     <span onDoubleClick={() => {
                         if(doubleClickTimes >= 2){ // actually need 3 times doubleClick
