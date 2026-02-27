@@ -50,7 +50,7 @@ function Footer() {
                 {footerHtml && <div dangerouslySetInnerHTML={{ __html: footerHtml }} />}
 
 
-<div className="mx-auto items-center text-center">
+<div className="items-center text-center">
 <iframe src="https://comment.19781126.xyz/embed/area/www?theme=light&lang=zh-CN"  
 name="评论" 
 width="90%"
@@ -61,7 +61,7 @@ scrolling="auto">
  <p>
     Powered by 💝💝💝
 <a href="https://cloudflare.com/" rel="noopener noreferrer" target="_blank">赛博菩萨</a>；
-  <a href="https://github.com/" rel="noopener noreferrer" target="_blank">小黄人</a>；
+  <a href="https://github.com/wyy000111" rel="noopener noreferrer" target="_blank">小黄人</a>；
   <a href="https://www.cloudns.net/" rel="noopener noreferrer" target="_blank">CloudNS</a>；
   <a href="https://account.proton.me/mail" rel="noopener noreferrer" target="_blank">Proton Mail</a>；💝💝💝
 </p>
