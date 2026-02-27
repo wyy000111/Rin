@@ -1,6 +1,6 @@
-import { Router } from "../core/router";
-import { t } from "../core/types";
-import type { Context } from "../core/types";
+import { Hono } from "hono";
+import { startTime, endTime } from "hono/timing";
+import type { AppContext } from "../core/hono-types";
 import { path_join } from "../utils/path";
 import { createS3Client, putObject } from "../utils/s3";
 
@@ -16,67 +16,84 @@ export function getFaviconKey(env: Env) {
     return path_join(env.S3_FOLDER || "", "favicon.webp");
 }
 
-export function FaviconService(router: Router): void {
+export function FaviconService(): Hono {
+    const app = new Hono();
+
     // GET /favicon
-    router.get("/favicon", async (ctx: Context) => {
-        const { set, store: { env } } = ctx;
+    app.get("/", async (c: AppContext) => {
+        startTime(c, 'favicon-get');
+        const env = c.get('env');
         const accessHost = env.S3_ACCESS_HOST || env.S3_ENDPOINT;
         const faviconKey = getFaviconKey(env);
         
         try {
+            startTime(c, 's3-fetch');
             const response = await fetch(new Request(`${accessHost}/${faviconKey}`));
+            endTime(c, 's3-fetch');
 
             if (!response.ok) {
-                set.status = response.status;
-                return await response.text();
+                endTime(c, 'favicon-get');
+                c.status(response.status as 200 | 400 | 401 | 403 | 404 | 500);
+                return c.text(await response.text());
             }
 
-            set.headers.set("Content-Type", "image/webp");
-            set.headers.set("Cache-Control", "public, max-age=31536000");
+            c.header("Content-Type", "image/webp");
+            c.header("Cache-Control", "public, max-age=31536000");
 
-            return await response.arrayBuffer();
+            const body = await response.arrayBuffer();
+            endTime(c, 'favicon-get');
+            return c.body(body);
         } catch (error) {
             if (error instanceof Error) {
-                set.status = 500;
+                endTime(c, 'favicon-get');
+                c.status(500);
                 console.error("Error fetching favicon:", error);
-                return `Error fetching favicon: ${error.message}`;
+                return c.text(`Error fetching favicon: ${error.message}`);
             }
         }
     });
 
     // GET /favicon/original
-    router.get("/favicon/original", async (ctx: Context) => {
-        const { set, store: { env } } = ctx;
+    app.get("/original", async (c: AppContext) => {
+        startTime(c, 'favicon-original-get');
+        const env = c.get('env');
         const accessHost = env.S3_ACCESS_HOST || env.S3_ENDPOINT;
         
         try {
             let originFaviconKey = null;
             for (const [mimeType, ext] of Object.entries(FAVICON_ALLOWED_TYPES)) {
                 originFaviconKey = path_join(env.S3_FOLDER || "", `originFavicon${ext}`);
+                startTime(c, 's3-fetch-original');
                 const response = await fetch(new Request(`${accessHost}/${originFaviconKey}`));
+                endTime(c, 's3-fetch-original');
 
                 if (response.ok) {
-                    set.headers.set("Content-Type", mimeType);
-                    set.headers.set("Cache-Control", "public, max-age=31536000");
-                    return await response.arrayBuffer();
+                    c.header("Content-Type", mimeType);
+                    c.header("Cache-Control", "public, max-age=31536000");
+                    const body = await response.arrayBuffer();
+                    endTime(c, 'favicon-original-get');
+                    return c.body(body);
                 }
             }
 
-            set.status = 404;
-            return "Original favicon not found";
+            endTime(c, 'favicon-original-get');
+            c.status(404);
+            return c.text("Original favicon not found");
         } catch (error) {
             if (error instanceof Error) {
-                set.status = 500;
+                endTime(c, 'favicon-original-get');
+                c.status(500);
                 console.error("Error fetching original favicon:", error);
-                return `Error fetching original favicon: ${error.message}`;
+                return c.text(`Error fetching original favicon: ${error.message}`);
             }
         }
     });
 
     // POST /favicon
-    router.post("/favicon", async (ctx: Context) => {
-        const { request, set, body, admin, store: { env } } = ctx;
-        const { file } = body;
+    app.post("/", async (c: AppContext) => {
+        startTime(c, 'favicon-upload');
+        const env = c.get('env');
+        const admin = c.get('admin');
         
         const s3 = createS3Client(env);
         const accessHost = env.S3_ACCESS_HOST || env.S3_ENDPOINT;
@@ -84,18 +101,31 @@ export function FaviconService(router: Router): void {
         
         try {
             if (!admin) {
-                set.status = 403;
-                return "Permission denied";
+                endTime(c, 'favicon-upload');
+                c.status(403);
+                return c.text("Permission denied");
+            }
+
+            const body = await c.req.parseBody();
+            const file = body.file as File;
+            
+            if (!file) {
+                endTime(c, 'favicon-upload');
+                c.status(400);
+                return c.text("No file uploaded");
             }
 
             const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
             if (file.size > MAX_FILE_SIZE) {
-                set.status = 400;
-                return `File size exceeds limit (${MAX_FILE_SIZE / 1024 / 1024}MB)`;
+                endTime(c, 'favicon-upload');
+                c.status(400);
+                return c.text(`File size exceeds limit (${MAX_FILE_SIZE / 1024 / 1024}MB)`);
             }
 
             if (!FAVICON_ALLOWED_TYPES[file.type]) {
-                return new Response("Disallowed file type", { status: 400 });
+                endTime(c, 'favicon-upload');
+                c.status(400);
+                return c.text("Disallowed file type");
             }
             
             const originFaviconKey = path_join(
@@ -103,17 +133,20 @@ export function FaviconService(router: Router): void {
                 `originFavicon${FAVICON_ALLOWED_TYPES[file.type]}`,
             );
 
+            startTime(c, 's3-put-origin');
             await putObject(
                 s3,
                 env,
                 originFaviconKey,
                 file
             );
+            endTime(c, 's3-put-origin');
 
             const imageRequest = new Request(`${accessHost}/${originFaviconKey}`, {
-                headers: request.headers,
+                headers: c.req.raw.headers,
             });
 
+            startTime(c, 'cf-image-resize');
             const response = await fetch(imageRequest, {
                 cf: {
                     image: {
@@ -125,33 +158,36 @@ export function FaviconService(router: Router): void {
                     },
                 },
             });
+            endTime(c, 'cf-image-resize');
 
             if (!response.ok) {
-                set.status = response.status;
-                return await response.text();
+                endTime(c, 'favicon-upload');
+                c.status(response.status as 200 | 400 | 401 | 403 | 404 | 500);
+                return c.text(await response.text());
             }
 
             const arrayBuffer = await response.arrayBuffer();
 
+            startTime(c, 's3-put-resized');
             await putObject(
                 s3,
                 env,
                 faviconKey,
                 new Uint8Array(arrayBuffer)
             );
+            endTime(c, 's3-put-resized');
 
-            return { url: `${accessHost}/${faviconKey}` };
+            endTime(c, 'favicon-upload');
+            return c.json({ url: `${accessHost}/${faviconKey}` });
         } catch (error) {
             if (error instanceof Error) {
-                set.status = 500;
+                endTime(c, 'favicon-upload');
+                c.status(500);
                 console.error("Error processing favicon:", error);
-                return `Error processing favicon: ${error.message}`;
+                return c.text(`Error processing favicon: ${error.message}`);
             }
         }
-    }, {
-        type: 'object',
-        properties: {
-            file: { type: 'file' }
-        }
     });
+
+    return app;
 }
